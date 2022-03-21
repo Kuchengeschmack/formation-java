@@ -166,7 +166,7 @@ public class EtudiantController {
 		Etudiant eOut = etudiantService.getEtudiantById(this.formateur, etudiant);
 		modelMVC.addAttribute("etudiant", eOut);
 
-		return "redirect:displaySearch";
+		return "recherche";
 
 	}
 
