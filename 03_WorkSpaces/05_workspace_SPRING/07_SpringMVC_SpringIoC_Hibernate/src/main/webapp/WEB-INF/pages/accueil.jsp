@@ -12,7 +12,6 @@
 <title>Accueil</title>
 
 <!-- Spécifier le chemin du fichier bootstrap.css -->
-<!-- ${pageContext.request.contextPath} sera remplacé par /8080/nom du projet... -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/bootstrap.css">
 </head>

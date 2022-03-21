@@ -48,8 +48,16 @@ public class EtudiantServiceImpl implements IEtudiantService {
 
 	@Override
 	public boolean deleteEtudiant(Formateur fIn, Etudiant eIn) {
+
 		// Récupérer l'étudiant par son Id
-		Etudiant ;
+		Etudiant eOut = this.getEtudiantById(fIn, eIn);
+
+		if (eOut != null && fIn.getId() == eOut.getFormateur().getId()) {
+
+			// Appel de la méthde Dao
+			return etudiantDao.deleteEtudiant(eOut);
+		}
+
 		return false;
 	}
 
