@@ -38,7 +38,10 @@ public class EtudiantDaoImpl implements IEtudiantDao {
 
 	@Override
 	public Etudiant addEtudiant(Etudiant eIn) {
-		// TODO Auto-generated method stub
+
+		// Récupérer la session hibernate
+		Session s = sf.getCurrentSession();
+
 		return null;
 	}
 

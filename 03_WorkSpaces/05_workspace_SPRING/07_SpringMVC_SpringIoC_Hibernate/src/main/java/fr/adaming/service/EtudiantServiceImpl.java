@@ -39,20 +39,27 @@ public class EtudiantServiceImpl implements IEtudiantService {
 
 	@Override
 	public int updateEtudiant(Formateur fIn, Etudiant eIn) {
-		// TODO Auto-generated method stub
-		return 0;
+		// Lier les objets en Java
+		eIn.setFormateur(fIn);
+
+		// Appel de la méthode Dao
+		return etudiantDao.updateEtudiant(eIn);
 	}
 
 	@Override
 	public boolean deleteEtudiant(Formateur fIn, Etudiant eIn) {
-		// TODO Auto-generated method stub
+		// Récupérer l'étudiant par son Id
+		Etudiant ;
 		return false;
 	}
 
 	@Override
 	public Etudiant getEtudiantById(Formateur fIn, Etudiant eIn) {
-		// TODO Auto-generated method stub
-		return null;
+		// Lier les objets en Java
+		eIn.setFormateur(fIn);
+
+		// Appel de la méthode Dao
+		return etudiantDao.getEtudiantById(eIn);
 	}
 
 }
