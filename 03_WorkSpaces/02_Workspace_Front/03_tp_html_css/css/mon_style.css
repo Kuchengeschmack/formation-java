@@ -1,0 +1,133 @@
+/* Le style de mon site */
+/* Le style appliqué dans la balise body */
+body {
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+header {
+  background-color: #35424a;
+  color: white;
+  font-size: 16px;
+  border-bottom: solid #e84900 3px;
+  padding-top: 30px;
+  min-height: 70px;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+}
+
+/* Le style à appliquer à toutes les balises nav qui se trouvent à
+l'intérieur de header */
+header nav {
+  float: right;
+  margin: 30px;
+}
+
+#idNomEntreprise {
+  float: left;
+}
+
+header ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+header li {
+  display: inline;
+  padding: 0px 20px 0px 20px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover{
+    color:red;
+    font-weight: bold;
+}
+
+/* On passe au style de la section intro */
+
+#idIntro {
+  min-height: 400px;
+  text-align: center;
+  color: white;
+  background: url(../images/imgBack.jpg) no-repeat;
+  background-size: cover;
+}
+
+#idIntro h1 {
+  margin-bottom: 10px;
+  font-size: 55px;
+  margin-top: 100px;
+}
+
+#idIntro p {
+  font-size: 20px;
+}
+
+/* Le style appliqué à la section notification */
+#notif {
+  color: white;
+  background-color: #35424a;
+}
+
+#notif h1 {
+  float: left;
+}
+
+h1 + form {
+  /* Tous les forms qui viennnent juste après un h1 */
+  float: right;
+  margin-top: 17px;
+}
+
+/* Appliquer le style pour tous les inputs de type email */
+input[type="email"] {
+  padding: 4px;
+  height: 25px;
+  width: 250px;
+}
+
+input[type="submit"] {
+  height: 33px;
+  background-color: red;
+  border: 0px;
+  padding-left: 20;
+  color: white;
+}
+
+/* Le style appliqué à la section service */
+#service {
+  margin-top: 20px;
+}
+
+.box {
+  text-align: center;
+  width: 30%;
+  padding: 10px;
+  float: left;
+}
+
+.box img {
+  width: 90px;
+  height: 90px;
+}
+
+/* Le style appliqué à la section footer */
+
+footer{
+    padding: 20px;
+    margin-top: 20px;
+    color: rgb(255,255,255);
+    background-color: #e8491d;
+    text-align: center;
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ma Page</title>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script src="./js/mon_script.js"></script>
+    <link rel="stylesheet" href="./css/mon_style.css">
+  </head>
+  <body>
+    <h1>Ceci est le premier titre</h1>
+    <h1>Ceci est le deuxième titre</h1>
+    <h1>Ceci est le troisième titre</h1>
+
+    <button onclick="cacherJs()">Cacher en js</button>
+    <button onclick="cacherJquery()">Cacher en jQuery</button>
+
+    <hr />
+    <br />
+
+    <div>
+      <h1 style="background-color: aqua; color: red">
+        Les sélecteurs css en jQuery
+      </h1>
+      <h2 id="idh2">Ceci est un titre</h2>
+
+      <blockquote class="toto">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab adipisci
+        ducimus libero recusandae quis, laudantium veritatis incidunt nesciunt
+        temporibus necessitatibus reprehenderit et aliquam odio totam beatae
+        illo aliquid sequi vitae?
+      </blockquote>
+
+      <button onclick="useSelector()">cacher des éléments</button>
+    </div>
+
+    <hr>
+    <br>
+    <h1 style="background-color:aqua; color:red">Manipuler du CSS</h1>
+
+    <p id="idp1" onmouseover="manipulerCss()">blablabla</p>
+
+    <hr>
+    <br>
+    <h1 style="background-color:aqua; color:red">Manipuler des class CSS</h1>
+
+    <p id="idp2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, maiores.</p>
+
+    <button onclick="ajouterClass()">ajouter une classe CSS</button>
+    <button onclick="supprimerClass()">supprimer une classe CSS</button>
+    <button onclick="alterClassCss()">Ajouter/Supprimer Class</button>
+
+    <hr>
+    <br>
+    <h1 style="background-color:aqua; color:red">Manipuler des attributs html</h1>
+    <img id="idImg" src="./images/inti.jpg"/>
+    <button onclick="changePicture()">changer image</button>
+
+  </body>
+</html>

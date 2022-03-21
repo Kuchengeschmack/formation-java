@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+  <display-name>04_tp_servlet</display-name>
+  
+	<!-- Déclarer la servlet -->
+	<servlet>
+		<servlet-name>formulaire</servlet-name>
+		<servlet-class>fr.adaming.controllers.MaServletFormulaire</servlet-class>
+	</servlet>
+
+	<!-- Le mapping de la servlet -->
+	<servlet-mapping>
+		<servlet-name>formulaire</servlet-name>
+		<url-pattern>/form</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Déclarer la deuxième servlet -->
+	
+	<servlet>
+		<servlet-name>resultat</servlet-name>
+		<servlet-class>fr.adaming.controllers.MaServletResultat</servlet-class>
+	</servlet>
+
+	<!-- Le mapping de la servlet -->
+	<servlet-mapping>
+		<servlet-name>resultat</servlet-name>
+		<url-pattern>/resultat</url-pattern>
+	</servlet-mapping>
+	
+	
+</web-app>

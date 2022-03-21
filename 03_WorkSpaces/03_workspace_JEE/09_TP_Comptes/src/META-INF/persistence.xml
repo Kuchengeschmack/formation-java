@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="pu"
+		transaction-type="RESOURCE_LOCAL">
+
+		<!-- 1. Spécifier l'implémentation de JPA (le fournisseur de l'implémentation) -->
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+		<!-- 2. Lister toutes les classes persistantes (classes annotées par @Entity) -->
+		<class>fr.adaming.entities.Client</class>
+		<class>fr.adaming.entities.CompteCourant</class>
+		<class>fr.adaming.entities.CompteEpargne</class>
+
+		<!-- 3. Spécifier les propriétés de la connexion à la BDD et Hibernate -->
+		<properties>
+			<property name="javax.persistence.jdbc.driver"
+				value="com.mysql.cj.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:mysql://localhost:3306/db_jpa?createDatabaseIfNotExist=true" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password"
+				value="root" />
+
+			<!-- Spécifier la stratégie de la création des tables par Hibernate grâce 
+				au mapping -->
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<!-- Les valeurs possibles; create, update, validate, create-drop -->
+
+			<!-- Afficher les requêtes SQL générées automatiquement -->
+			<property name="hibernate.show_sql" value="true" />
+		</properties>
+	</persistence-unit>
+</persistence>
