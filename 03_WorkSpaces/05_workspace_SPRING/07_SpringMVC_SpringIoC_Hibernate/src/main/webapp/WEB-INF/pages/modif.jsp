@@ -16,9 +16,11 @@
 <!-- Spécifier le chemin du fichier bootstrap.css -->
 
 <link rel="stylesheet" href='<c:url value="/assets/css/bootstrap.css"/>' />
+<script type="text/javascript" src="/assets/js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
 </head>
 <body>
-
+<%@ include file="/template/header.html"%>
 	<h1 style="color: blue; text-align: center;">Formulaire de
 		modification</h1>
 
