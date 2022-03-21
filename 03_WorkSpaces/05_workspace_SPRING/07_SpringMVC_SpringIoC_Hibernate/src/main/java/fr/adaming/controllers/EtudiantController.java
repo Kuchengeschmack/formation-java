@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import fr.adaming.entities.Etudiant;
 import fr.adaming.entities.Formateur;
@@ -110,12 +112,14 @@ public class EtudiantController {
 
 	// b: La méthode en POST pour soumettre (traiter) le formulaire de l'ajout
 	@PostMapping("/submitUpdate")
-	public String soumettreUpdate(ModelMap modelMVC, @ModelAttribute("eUpdate") Etudiant etudiant) {
+	public String soumettreUpdate(@ModelAttribute("eUpdate") Etudiant etudiant, RedirectAttributes rda) {
 
 		// Appel de la méthode service afin d'ajouter l'étudiant dans la BD
 		int verif = etudiantService.updateEtudiant(this.formateur, etudiant);
 
 		if (verif == 0) {
+			// Ajouter un message d'erreur dans le modelMVC
+			rda.addFlashAttribute("msg", "La modification a échoué !");
 			return "redirect:displayUpdate";
 		} else {
 			return "redirect:list";
@@ -126,22 +130,27 @@ public class EtudiantController {
 	// ================== 4: La fonctionalité supprimer
 	// a: La méthode en GET pour afficher le formulaire et lui associer un model MVC
 	@GetMapping("/displayDelete")
-	public ModelAndView afficheSuppression() {
+	public String afficheSuppression() {
 
-		// L'objet ModelAndView contient l'identifiant de la page et l'étudiant associé
-		// au formulaire
-		return new ModelAndView("suppression", "eDelete", new Etudiant());
+		// Pas besoin de créer un étudiant
+		// On prend un formulaire classique dans suppression.jsp
+		return "suppression";
 	}
 
 	// b: La méthode en POST pour soumettre (traiter) le formulaire de l'ajout
-	@PostMapping("/submitDelete")
-	public String soumettreDelete(ModelMap modelMVC, @ModelAttribute("eDelete") Etudiant etudiant) {
+	@GetMapping("/submitDelete")
+	public String soumettreDelete(ModelMap modelMVC, @RequestParam("pId") int id) {
 
-		// Appel de la méthode service afin d'ajouter l'étudiant dans la BD
-		boolean verif = etudiantService.deleteEtudiant(this.formateur, etudiant);
+		Etudiant eDelete = new Etudiant();
+		eDelete.setId(id);
+
+		// Appel de la méthode service
+		boolean verif = etudiantService.deleteEtudiant(this.formateur, eDelete);
 
 		if (!verif) {
-			return "redirect:displayDelete";
+			// Ajouter un message d'erreur dans le modele MVC
+			modelMVC.addAttribute("msg", "La suppression a échoué !");
+			return "suppression";
 		} else {
 			return "redirect:list";
 		}

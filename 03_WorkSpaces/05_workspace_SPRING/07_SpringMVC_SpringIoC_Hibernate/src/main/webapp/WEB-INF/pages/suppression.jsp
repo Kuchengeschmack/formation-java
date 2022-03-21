@@ -20,18 +20,17 @@
 </head>
 <body>
 
-<%@ include file="/template/header.html"%>
+	<%@ include file="/template/header.html"%>
 	<h1 style="color: blue; text-align: center;">Formulaire de la
 		suppression</h1>
 
-	<form:form class="form-horizontal" method="post" action="submitDelete"
-		modelAttribute="eDelete">
+	<form class="form-horizontal" method="get" action="submitDelete">
 
 		<div class="form-group">
-			<form:label class="col-sm-2 control-label" path="id">Id: </form:label>
+			<label class="col-sm-2 control-label">Id: </label>
 			<div class="col-sm-10">
-				<form:input type="number" class="form-control" placeholder="Id: "
-					path="id" />
+				<input type="number" class="form-control" placeholder="Id: "
+					name="pId" />
 			</div>
 		</div>
 
@@ -40,7 +39,9 @@
 				<button type="submit" class="btn btn-danger">Supprimer</button>
 			</div>
 		</div>
-	</form:form>
+	</form>
+
+	<h1 style="color: blue; text-align: center;">${msg}</h1>
 
 </body>
 </html>

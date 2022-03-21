@@ -20,7 +20,7 @@
 <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
 </head>
 <body>
-<%@ include file="/template/header.html"%>
+	<%@ include file="/template/header.html"%>
 	<h1 style="color: blue; text-align: center;">Formulaire de
 		modification</h1>
 
@@ -66,6 +66,8 @@
 			</div>
 		</div>
 	</form:form>
+
+	<h1 style="color: blue; text-align:center">${msg}</h1>
 
 </body>
 </html>
