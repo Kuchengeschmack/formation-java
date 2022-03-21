@@ -22,15 +22,19 @@ public class EtudiantServiceImpl implements IEtudiantService {
 
 	@Override
 	public List<Etudiant> getAllEtudiant(Formateur fIn) {
-		
+
 		// Appel de la méthode DAO
 		return etudiantDao.getAllEtudiant(fIn);
 	}
 
 	@Override
 	public Etudiant addEtudiant(Formateur fIn, Etudiant eIn) {
-		// TODO Auto-generated method stub
-		return null;
+
+		// Lier les objets en Java
+		eIn.setFormateur(fIn);
+
+		// Appel de la méthode Dao
+		return etudiantDao.addEtudiant(eIn);
 	}
 
 	@Override

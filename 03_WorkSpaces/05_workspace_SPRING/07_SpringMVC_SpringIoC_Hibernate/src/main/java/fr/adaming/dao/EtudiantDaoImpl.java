@@ -2,6 +2,7 @@ package fr.adaming.dao;
 
 import java.util.List;
 
+import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -39,25 +40,74 @@ public class EtudiantDaoImpl implements IEtudiantDao {
 
 	@Override
 	public Etudiant addEtudiant(Etudiant eIn) {
-		return null;
+
+		// Récupérer la session hibernate
+		Session s = sf.getCurrentSession();
+
+		// Appel de la méthode save de la session pour relier l'objet eIn avec le
+		// contexte de la session Hibernate
+		s.save(eIn);
+
+		return eIn;
 	}
 
 	@Override
 	public int updateEtudiant(Etudiant eIn) {
-		// TODO Auto-generated method stub
-		return 0;
+
+		// Récupérer la session Hibernate
+		Session s = sf.getCurrentSession();
+
+		// Écrire la requête HQL
+		String req = "UPDATE Etudiant as e SET e.nom=:pNom, e.prenom=:pPrenom, e.dn=:pDate WHERE e.id=:pId AND e.formateur.id=:pIdF";
+
+		// Récupérer l'objet Query pour envoyer la requête HQL
+
+		Query query = s.createQuery(req);
+
+		// Passage des paramètres
+		query.setParameter("pNom", eIn.getNom());
+		query.setParameter("pPrenom", eIn.getPrenom());
+		query.setParameter("pDate", eIn.getDn());
+		query.setParameter("pId", eIn.getId());
+		query.setParameter("pIdF", eIn.getFormateur().getId());
+
+		// Exécuter la requête HQL
+		return query.executeUpdate(); // Retourne le nombre de lignes modifiées
 	}
 
 	@Override
 	public boolean deleteEtudiant(Etudiant eIn) {
-		// TODO Auto-generated method stub
+
+		try {
+			Session s = sf.getCurrentSession();
+
+			s.delete(eIn);
+
+			return true;
+		} catch (HibernateException ex) {
+			ex.printStackTrace();
+		}
+
 		return false;
 	}
 
 	@Override
 	public Etudiant getEtudiantById(Etudiant eIn) {
-		// TODO Auto-generated method stub
-		return null;
+		// récupérer la session hibernate
+		Session s = sf.getCurrentSession();
+
+		// Ecrire la requête HQL
+		String req = "FROM Etudiant as e WHERE e.id=:pId AND e.formateur.id=:pIdF";
+
+		// Récupérer l'objet Query
+		Query query = s.createQuery(req);
+
+		// Passage des paramètres
+		query.setParameter("pId", eIn.getId());
+		query.setParameter("pIdF", eIn.getFormateur().getId());
+
+		// Executer la requête HQL
+		return (Etudiant) query.uniqueResult();
 	}
 
 }
