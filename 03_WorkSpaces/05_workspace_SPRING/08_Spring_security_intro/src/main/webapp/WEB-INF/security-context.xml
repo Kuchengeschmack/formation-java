@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<!-- Cadenacer les urls -->
+
+	<!-- Spécifier le chemin du fichier data-source.properties -->
+	<context:property-placeholder location="classpath*:data-source.properties" />
+
+	<!-- Déclaration du bean data-source -->
+	<!-- Definir le bean DataSource : c'est un bean qui encapsule les infos de la connextion à labd -->
+	<bean id="dataSourceBean" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<!-- Injection de dependances via les setters: specifer les infos de la connexion à la bd -->
+		<property name="url" value="${jdbc.url}" />
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="username" value="${jdbc.user}" />
+		<property name="password" value="${jdbc.mdp}" />
+	</bean>
+
+	<!-- 1: La partie autorisation : sert à définir les urls protégées et les autorisations associées -->
+
+
+	<security:http>
+		<!-- Spécifier les urls protégées et les permissions d'accès -->
+		<security:intercept-url pattern="/admin/**" access="ROLE_ADMIN" />
+
+		<security:intercept-url pattern="/public/**" access="ROLE_CLIENT" />
+
+		<!-- Utilisation d'un formulaire de connexion généré automatiquement -->
+		<security:http-basic />
+	</security:http>
+
+
+	<!-- 2: La partie authentification : sert à chercher les utilisateurs et leurs rôles dans la BD -->
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<security:jdbc-user-service data-source-ref="dataSourceBean"
+				users-by-username-query="SELECT mail_u, mdp_u, active FROM users WHERE mail_u=?"
+				authorities-by-username-query="SELECT u.mail_u, r.rolename_r FROM users AS u, roles AS r WHERE u.id_u=r.u_id AND u.mail_u=?" />
+		</security:authentication-provider>
+	</security:authentication-manager>
+
+
+</beans>
