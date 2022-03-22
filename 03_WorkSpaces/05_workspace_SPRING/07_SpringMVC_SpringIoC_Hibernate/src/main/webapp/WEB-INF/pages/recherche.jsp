@@ -20,7 +20,7 @@
 <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
 </head>
 <body>
-<%@ include file="/template/header.html"%>
+	<%@ include file="/template/header.html"%>
 
 	<h1 style="color: blue; text-align: center;">Formulaire de la
 		recherche</h1>
@@ -43,24 +43,28 @@
 		</div>
 	</form:form>
 
-	<table class="table table-bordered">
-		<tr>
-			<th>ID</th>
-			<th>Nom</th>
-			<th>Prenom</th>
-			<th>Date de naissance</th>
-		</tr>
+	<c:if test="${not empty etudiant}">
+		<table class="table table-bordered">
+			<tr>
+				<th>ID</th>
+				<th>Nom</th>
+				<th>Prenom</th>
+				<th>Date de naissance</th>
+			</tr>
 
 
-		<tr>
-			<th>${etudiant.id}</th>
-			<th>${etudiant.nom}</th>
-			<th>${etudiant.prenom}</th>
-			<th>${etudiant.dn}</th>
-		</tr>
+			<tr>
+				<th>${etudiant.id}</th>
+				<th>${etudiant.nom}</th>
+				<th>${etudiant.prenom}</th>
+				<th>${etudiant.dn}</th>
+			</tr>
 
 
-	</table>
+		</table>
+	</c:if>
+
+	<h1 style="color: blue; text-align: center;">${msg}</h1>
 
 </body>
 </html>

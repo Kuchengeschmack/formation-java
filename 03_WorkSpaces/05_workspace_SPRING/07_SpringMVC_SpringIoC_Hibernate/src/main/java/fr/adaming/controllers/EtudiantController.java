@@ -173,7 +173,12 @@ public class EtudiantController {
 
 		// Appel de la méthode service afin d'ajouter l'étudiant dans la BD
 		Etudiant eOut = etudiantService.getEtudiantById(this.formateur, etudiant);
+		
+		if(eOut!=null) {
 		modelMVC.addAttribute("etudiant", eOut);
+		} else {
+			modelMVC.addAttribute("msg", "La recherche a échoué !");
+		}
 
 		return "recherche";
 
