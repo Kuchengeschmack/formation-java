@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -127,6 +128,19 @@ public class EtudiantController {
 
 	}
 
+	@RequestMapping(value = "/updateLink", method = RequestMethod.GET)
+	public String modifLink(Model modeleMVC, @RequestParam("pId") int id) {
+
+		Etudiant eModif = new Etudiant();
+		eModif.setId(id);
+		Etudiant eOut = etudiantService.getEtudiantById(this.formateur, eModif);
+
+		modeleMVC.addAttribute("eUpdate", eOut); // Pas besoin d'utiliser l'attribut value dans le jsp, path suffit
+
+		return "modif";
+
+	}
+
 	// ================== 4: La fonctionalité supprimer
 	// a: La méthode en GET pour afficher le formulaire et lui associer un model MVC
 	@GetMapping("/displayDelete")
@@ -173,9 +187,9 @@ public class EtudiantController {
 
 		// Appel de la méthode service afin d'ajouter l'étudiant dans la BD
 		Etudiant eOut = etudiantService.getEtudiantById(this.formateur, etudiant);
-		
-		if(eOut!=null) {
-		modelMVC.addAttribute("etudiant", eOut);
+
+		if (eOut != null) {
+			modelMVC.addAttribute("etudiant", eOut);
 		} else {
 			modelMVC.addAttribute("msg", "La recherche a échoué !");
 		}
