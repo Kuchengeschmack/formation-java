@@ -22,7 +22,7 @@
 		<hibernate.version>5.2.11.Final</hibernate.version>
 		<c3p0.version>0.9.5.2</c3p0.version>
 		<hibernate.validator>5.4.1.Final</hibernate.validator>
-		<mysql_connector_version>5.1.47</mysql_connector_version>
+		<mysql_connector_version>8.0.28</mysql_connector_version>
 
 		<!-- La version de la servlet utilisée -->
 		<servlets.version>3.1.0</servlets.version>

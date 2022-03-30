@@ -8,7 +8,7 @@
 	<!-- Déclaration du listener pour pouvoir charger le contexte de Spring 
 		IoC -->
 	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener.class</listener-class>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
 	<!-- Spécifier le chemin du fichier de config de Spring IoC -->
