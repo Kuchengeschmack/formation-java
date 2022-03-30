@@ -8,6 +8,9 @@ import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.context.annotation.Scope;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -25,14 +28,20 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import fr.adaming.entities.Etudiant;
 import fr.adaming.entities.Formateur;
 import fr.adaming.service.IEtudiantService;
+import fr.adaming.service.IFormateurService;
 
 @Controller
 @RequestMapping("/etudiant")
+@Scope("session") // Définir le scope (la portée) du controlleur comme "session"; il va instancier
+					// un seul objet de cette classe pour toute la session HTTP
 public class EtudiantController {
 
 	// Transformer l'association UML en Java
 	@Autowired
 	private IEtudiantService etudiantService;
+
+	@Autowired
+	private IFormateurService formateurService;
 
 	private Formateur formateur;
 
@@ -40,7 +49,15 @@ public class EtudiantController {
 					// EtudiantController afin d'initialiser ses attributs
 	public void init() {
 
-		this.formateur = new Formateur(1, "a@a", "a");
+		// Récupérer le contexte de Spring Security
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
+		// Récupérer l'email du formateur connecté
+		String mail = auth.getName();
+
+		this.formateur = formateurService.getFormateurByMail(mail);
+
+		// this.formateur = new Formateur(1, "a@a", "a");
 	}
 
 	@InitBinder // cette annotation permet de definir la methode à appeler lors

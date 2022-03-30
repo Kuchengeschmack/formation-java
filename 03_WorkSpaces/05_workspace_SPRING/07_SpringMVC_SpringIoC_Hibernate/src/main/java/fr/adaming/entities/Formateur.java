@@ -22,9 +22,16 @@ public class Formateur implements Serializable {
 	private String mail;
 	private String password;
 
+	@Column(nullable = false, columnDefinition = "TINYINT(1)")
+	private boolean active;
+
 	// Transformation de l'association UML en Java
 	@OneToMany(mappedBy = "formateur")
 	private List<Etudiant> etudiants;
+
+	// Transformation de l'association UML en Java
+	@OneToMany(mappedBy = "formateur")
+	private List<Role> roles;
 
 	//
 	public Formateur() {
@@ -77,4 +84,19 @@ public class Formateur implements Serializable {
 		this.etudiants = etudiants;
 	}
 
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
+	}
 }

@@ -1,0 +1,37 @@
+<div class="container-fluid">
+	<nav class="navbar navbar-default">
+		<div class="container" style="text-align: center;">
+			<ul class="nav navbar-nav">
+
+				<li role="presentation"><a href="${pageContext.request.contextPath}/welcome">Accueil</a></li>
+				<li role="presentation"><a href="#">Pain</a></li>
+				<li role="presentation"><a href="#">Viennoiserie</a></li>
+				<li role="presentation"><a href="#">Patisserie</a></li>
+				<li role="presentation"><a href="#">Bonbons</a></li>
+				<li role="presentation"><a href="#">Panier</a>${panier.nbrProduit}</li>
+				
+
+			</ul>
+
+			<form class="navbar-form navbar-left" method="post" action="submitProduit">
+				<div class="form-group">
+					<input type="text" class="form-control" name="pMotClef" placeholder="Rechercher un produit">
+				</div>
+				<button type="submit" class="btn btn-default">Rechercher</button>
+			</form>
+		</div>
+		
+
+			
+
+		
+
+	</nav>
+
+
+
+
+
+
+
+</div>

@@ -38,15 +38,18 @@
 				<th>${e.nom}</th>
 				<th>${e.prenom}</th>
 				<th>${e.dn}</th>
-				<th>
-				<a class="btn btn-danger" href="<c:url value='/etudiant/submitDelete?pId=${e.id}'/>">Supprimer</a>
-				<a class="btn btn-primary" href="<c:url value='/etudiant/updateLink?pId=${e.id}'/>">Modifier</a>
+				<th><a class="btn btn-danger"
+					href="<c:url value='/etudiant/submitDelete?pId=${e.id}'/>">Supprimer</a>
+					<a class="btn btn-primary"
+					href="<c:url value='/etudiant/updateLink?pId=${e.id}'/>">Modifier</a>
 				</th>
 			</tr>
 
 		</c:forEach>
 
 	</table>
+
+	<a href='<c:url value="/deconnexion"/>'>Se déconnecter</a>
 
 </body>
 </html>

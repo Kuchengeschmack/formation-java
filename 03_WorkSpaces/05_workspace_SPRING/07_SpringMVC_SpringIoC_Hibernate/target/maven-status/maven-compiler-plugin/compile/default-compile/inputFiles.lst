@@ -1,7 +1,13 @@
 C:\Users\Dorian\Formation Java INTI\03_WorkSpaces\05_workspace_SPRING\07_SpringMVC_SpringIoC_Hibernate\src\main\java\fr\adaming\service\IEtudiantService.java
-C:\Users\Dorian\Formation Java INTI\03_WorkSpaces\05_workspace_SPRING\07_SpringMVC_SpringIoC_Hibernate\src\main\java\fr\adaming\dao\IEtudiantDao.java
+C:\Users\Dorian\Formation Java INTI\03_WorkSpaces\05_workspace_SPRING\07_SpringMVC_SpringIoC_Hibernate\src\main\java\fr\adaming\service\FormateurServiceImpl.java
+C:\Users\Dorian\Formation Java INTI\03_WorkSpaces\05_workspace_SPRING\07_SpringMVC_SpringIoC_Hibernate\src\main\java\fr\adaming\service\IFormateurService.java
+C:\Users\Dorian\Formation Java INTI\03_WorkSpaces\05_workspace_SPRING\07_SpringMVC_SpringIoC_Hibernate\src\main\java\fr\adaming\dao\FormateurDaoImpl.java
 C:\Users\Dorian\Formation Java INTI\03_WorkSpaces\05_workspace_SPRING\07_SpringMVC_SpringIoC_Hibernate\src\main\java\fr\adaming\dao\EtudiantDaoImpl.java
 C:\Users\Dorian\Formation Java INTI\03_WorkSpaces\05_workspace_SPRING\07_SpringMVC_SpringIoC_Hibernate\src\main\java\fr\adaming\entities\Formateur.java
+C:\Users\Dorian\Formation Java INTI\03_WorkSpaces\05_workspace_SPRING\07_SpringMVC_SpringIoC_Hibernate\src\main\java\fr\adaming\entities\Role.java
+C:\Users\Dorian\Formation Java INTI\03_WorkSpaces\05_workspace_SPRING\07_SpringMVC_SpringIoC_Hibernate\src\main\java\fr\adaming\controllers\AuthentificationController.java
+C:\Users\Dorian\Formation Java INTI\03_WorkSpaces\05_workspace_SPRING\07_SpringMVC_SpringIoC_Hibernate\src\main\java\fr\adaming\dao\IEtudiantDao.java
 C:\Users\Dorian\Formation Java INTI\03_WorkSpaces\05_workspace_SPRING\07_SpringMVC_SpringIoC_Hibernate\src\main\java\fr\adaming\service\EtudiantServiceImpl.java
+C:\Users\Dorian\Formation Java INTI\03_WorkSpaces\05_workspace_SPRING\07_SpringMVC_SpringIoC_Hibernate\src\main\java\fr\adaming\dao\IFormateurDao.java
 C:\Users\Dorian\Formation Java INTI\03_WorkSpaces\05_workspace_SPRING\07_SpringMVC_SpringIoC_Hibernate\src\main\java\fr\adaming\entities\Etudiant.java
 C:\Users\Dorian\Formation Java INTI\03_WorkSpaces\05_workspace_SPRING\07_SpringMVC_SpringIoC_Hibernate\src\main\java\fr\adaming\controllers\EtudiantController.java

@@ -31,7 +31,19 @@
 		<security:intercept-url pattern="/public/**" access="ROLE_CLIENT" />
 
 		<!-- Utilisation d'un formulaire de connexion généré automatiquement -->
-		<security:http-basic />
+		<!-- <security:http-basic /> -->
+
+		<!-- Utilisation d'un formulaire perso pour la connexion -->
+		<security:form-login login-page="/login" authentication-failure-url="/echec"
+			login-processing-url="/connexion" />
+
+		<!-- Afficher une page personalisée dans le cas où l'accès est refusé -->
+		<security:access-denied-handler error-page="/denied" />
+
+		<!-- Aller à accueil lors de la déconnexion -->
+		<security:logout logout-success-url="/logout" logout-url="/deconnexion" />
+
+
 	</security:http>
 
 
