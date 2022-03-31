@@ -1,10 +1,10 @@
-package fr.adamng.service;
+package fr.adaming.dao;
 
 import java.util.List;
 
 import fr.adaming.entities.Etudiant;
 
-public interface IEtudiantService {
+public interface IEtudiantDao {
 
 	public Etudiant getEtudiantById(int id);
 
@@ -15,4 +15,5 @@ public interface IEtudiantService {
 	public void updateEtudiant(Etudiant eIn);
 
 	public int deleteEtudiant(int id);
+
 }

@@ -12,57 +12,53 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
-@Table(name = "etudiants")
+@Table(name = "marchandises")
 
-@SuppressWarnings("serial")
 @XmlRootElement // Permet la sérialisation/désérialisation d'un objet Java en XML. C'est la
 				// seule annotation obligatoire de JAXB
 @XmlAccessorType(XmlAccessType.FIELD) // Pour que JAXB prenne les annotations mises sur les attributs
-public class Etudiant implements Serializable {
+
+@SuppressWarnings("serial")
+public class Marchandise implements Serializable {
 
 	// Déclaration des attributs
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	private String nom;
-	private String prenom;
-
-//	@JsonIgnore // Permet de ne pas prendre en considération l'attribut lors de la
-				// sérialisation/désérialisation java <-> json
-
-//	@XmlTransient
-	private int age;
+	private Long num; // Numéro auto-incrémenté
+	private String nom; // Le nom de la marchandise
+	private Double poids;
+	private Double vol;
 
 	// Déclaration des constructeurs
 
-	public Etudiant() {
+	public Marchandise() {
 		super();
 	}
 
-	public Etudiant(String nom, String prenom, int age) {
+	public Marchandise(String nom, Double poids, Double vol) {
 		super();
 		this.nom = nom;
-		this.prenom = prenom;
-		this.age = age;
+		this.poids = poids;
+		this.vol = vol;
 	}
 
-	public Etudiant(int id, String nom, String prenom, int age) {
+	public Marchandise(Long num, String nom, Double poids, Double vol) {
 		super();
-		this.id = id;
+		this.num = num;
 		this.nom = nom;
-		this.prenom = prenom;
-		this.age = age;
+		this.poids = poids;
+		this.vol = vol;
 	}
 
-	// Déclaration des getters et des setters
+	// Déclaration des getters et de setters
 
-	public int getId() {
-		return id;
+	public Long getNum() {
+		return num;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setNum(Long num) {
+		this.num = num;
 	}
 
 	public String getNom() {
@@ -73,20 +69,20 @@ public class Etudiant implements Serializable {
 		this.nom = nom;
 	}
 
-	public String getPrenom() {
-		return prenom;
+	public Double getPoids() {
+		return poids;
 	}
 
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
+	public void setPoids(Double poids) {
+		this.poids = poids;
 	}
 
-	public int getAge() {
-		return age;
+	public Double getVol() {
+		return vol;
 	}
 
-	public void setAge(int age) {
-		this.age = age;
+	public void setVol(Double vol) {
+		this.vol = vol;
 	}
 
 }

@@ -1,6 +1,6 @@
+fr\adaming\dao\IEtudiantDao.class
 fr\adaming\rest\EtudiantRest.class
-fr\adamng\service\IEtudiantService.class
-fr\adaming\entities\EtudiantDaoImpl.class
-fr\adaming\entities\IEtudiantDao.class
-fr\adamng\service\EtudiantServiceImpl.class
+fr\adaming\dao\EtudiantDaoImpl.class
+fr\adaming\service\IEtudiantService.class
+fr\adaming\service\EtudiantServiceImpl.class
 fr\adaming\entities\Etudiant.class
