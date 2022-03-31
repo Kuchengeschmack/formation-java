@@ -7,14 +7,14 @@ public interface IMarchandiseService {
 	// Déclaration des méthodes CRUD
 
 	// Save
-	public void save(Marchandise entite);
+	public Marchandise save(Marchandise entite);
 
 	// Update
 	public void update(Marchandise entite);
 
 	// Get
-	public Marchandise getById(int id);
+	public Marchandise getById(Long id);
 
 	// Delete
-	public void delete(Marchandise entite);
+	public Long delete(Long id);
 }

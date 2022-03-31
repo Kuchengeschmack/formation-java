@@ -6,8 +6,8 @@ import java.util.List;
 public abstract class Cargaison {
 
 	// Déclaration des attributs
-
 	protected String reference;
+
 	protected Double distanceParcours; // En km
 	protected Date dateLivraison; // Format AAAA-MM-JJ
 
@@ -21,12 +21,6 @@ public abstract class Cargaison {
 		super();
 	}
 
-	public Cargaison(Double distanceParcours, Date dateLivraison) {
-		super();
-		this.distanceParcours = distanceParcours;
-		this.dateLivraison = dateLivraison;
-	}
-
 	public Cargaison(String reference, Double distanceParcours, Date dateLivraison) {
 		super();
 		this.reference = reference;
@@ -34,7 +28,23 @@ public abstract class Cargaison {
 		this.dateLivraison = dateLivraison;
 	}
 
+	public Cargaison(Long id, String reference, Double distanceParcours, Date dateLivraison) {
+		super();
+		this.id = id;
+		this.reference = reference;
+		this.distanceParcours = distanceParcours;
+		this.dateLivraison = dateLivraison;
+	}
+
 	// Déclaration des getters et des setters
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public String getReference() {
 		return reference;

@@ -17,8 +17,8 @@ public interface IGeneriqueDao<T extends Serializable> {
 	public void update(T entite);
 
 	// Get
-	public T getById(int id);
+	public T getById(Long id);
 
 	// Delete
-	public void delete(T entite);
+	public void delete(Long id);
 }

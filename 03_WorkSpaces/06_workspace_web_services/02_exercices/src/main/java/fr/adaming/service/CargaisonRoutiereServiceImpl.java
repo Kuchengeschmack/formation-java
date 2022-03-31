@@ -1,31 +1,46 @@
 package fr.adaming.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import fr.adaming.dao.IGeneriqueDao;
 import fr.adaming.entities.CargaisonRoutiere;
 
-public class CargaisonRoutiereServiceImpl implements ICargaisonRoutiereService{
+@Service
+@Transactional
+public class CargaisonRoutiereServiceImpl implements ICargaisonRoutiereService {
+
+	private IGeneriqueDao<CargaisonRoutiere> cargRoutDao;
+
+	@Autowired
+	public void setCargRoutDao(IGeneriqueDao<CargaisonRoutiere> cargRoutDao) {
+		this.cargRoutDao = cargRoutDao;
+		cargRoutDao.setGeneric(CargaisonRoutiere.class);
+	}
 
 	@Override
-	public void save(CargaisonRoutiere entite) {
-		// TODO Auto-generated method stub
-		
+	public CargaisonRoutiere save(CargaisonRoutiere entite) {
+		cargRoutDao.save(entite);
+		return entite;
+
 	}
 
 	@Override
 	public void update(CargaisonRoutiere entite) {
-		// TODO Auto-generated method stub
-		
+		cargRoutDao.update(entite);
+
 	}
 
 	@Override
-	public CargaisonRoutiere getById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public void delete(Long id) {
+		cargRoutDao.delete(id);
+
 	}
 
 	@Override
-	public void delete(CargaisonRoutiere entite) {
-		// TODO Auto-generated method stub
-		
+	public CargaisonRoutiere getById(Long id) {
+		return cargRoutDao.getById(id);
 	}
 
 }

@@ -7,14 +7,14 @@ public interface ICargaisonAerienneService {
 	// Déclaration des méthodes CRUD
 
 	// Save
-	public void save(CargaisonAerienne entite);
+	public CargaisonAerienne save(CargaisonAerienne entite);
 
 	// Update
 	public void update(CargaisonAerienne entite);
 
 	// Get
-	public CargaisonAerienne getById(int id);
+	public CargaisonAerienne getById(Long id);
 
 	// Delete
-	public void delete(CargaisonAerienne entite);
+	public void delete(Long id);
 }

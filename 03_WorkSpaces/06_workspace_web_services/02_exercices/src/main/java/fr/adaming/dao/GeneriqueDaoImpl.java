@@ -31,15 +31,15 @@ public abstract class GeneriqueDaoImpl<T extends Serializable> implements IGener
 	}
 
 	// Get
-	public T getById(int id) {
+	public T getById(Long id) {
 		Session s = sf.getCurrentSession();
 		return s.get(generic, id);
 	}
 
 	// Delete
-	public void delete(T entite) {
+	public void delete(Long id) {
 		Session s = sf.getCurrentSession();
-		s.delete(entite);
+		s.delete(s.get(generic, id));
 	}
 
 }
