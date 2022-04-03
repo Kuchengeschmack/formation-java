@@ -1,7 +1,5 @@
 package fr.adaming.rest;
 
-import java.util.List;
-
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -16,7 +14,6 @@ import javax.ws.rs.core.Response;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import fr.adaming.entities.Etudiant;
 import fr.adaming.entities.Marchandise;
 import fr.adaming.service.IMarchandiseService;
 
@@ -36,13 +33,13 @@ public class MarchandiseRest {
 
 	}
 
-//	@Path("/list")
-//	@GET
-//	@Produces(MediaType.APPLICATION_JSON)
-//	public List<Marchandise> recupererListe() {
-//		return march.getAllEtudiants();
-//
-//	}
+	@Path("/list")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Marchandise> recupererListe() {
+		return march.getAllEtudiants();
+
+	}
 
 	@Path("/add")
 	@POST

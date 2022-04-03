@@ -8,7 +8,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -29,14 +32,28 @@ public class CargaisonRoutiere extends Cargaison implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@Temporal(TemporalType.DATE)
+	private Date dateLivraison;
 	private Double tempCons; // Température de conservation en °C
 
 	// Transformation de l'association UML en Java
 
-	@Autowired
+	@OneToMany(mappedBy = "cargaison")
 	private List<Marchandise> marchandises;
 
 	// Déclaration des constructeurs
+
+	public CargaisonRoutiere() {
+		super();
+	}
+
+	public Date getDateLivraison() {
+		return dateLivraison;
+	}
+
+	public void setDateLivraison(Date dateLivraison) {
+		this.dateLivraison = dateLivraison;
+	}
 
 	public List<Marchandise> getMarchandises() {
 		return marchandises;
@@ -44,10 +61,6 @@ public class CargaisonRoutiere extends Cargaison implements Serializable {
 
 	public void setMarchandises(List<Marchandise> marchandises) {
 		this.marchandises = marchandises;
-	}
-
-	public CargaisonRoutiere() {
-		super();
 	}
 
 	public CargaisonRoutiere(String reference, Double distanceParcours, Date dateLivraison, Double tempCons) {

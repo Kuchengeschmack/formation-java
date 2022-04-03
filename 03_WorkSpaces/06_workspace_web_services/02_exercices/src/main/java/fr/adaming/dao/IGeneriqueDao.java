@@ -1,6 +1,7 @@
 package fr.adaming.dao;
 
 import java.io.Serializable;
+import java.util.List;
 
 public interface IGeneriqueDao<T extends Serializable> {
 
@@ -20,5 +21,10 @@ public interface IGeneriqueDao<T extends Serializable> {
 	public T getById(Long id);
 
 	// Delete
-	public void delete(Long id);
+	public int delete(Long id);
+
+	// Déclaration de méthodes supplémentaires au CRUD
+
+	public List<T> list();
+
 }

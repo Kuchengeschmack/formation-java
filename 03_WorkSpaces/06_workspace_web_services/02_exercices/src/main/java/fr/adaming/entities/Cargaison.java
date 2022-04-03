@@ -6,6 +6,7 @@ import java.util.List;
 public abstract class Cargaison {
 
 	// Déclaration des attributs
+	protected Long id;
 	protected String reference;
 
 	protected Double distanceParcours; // En km

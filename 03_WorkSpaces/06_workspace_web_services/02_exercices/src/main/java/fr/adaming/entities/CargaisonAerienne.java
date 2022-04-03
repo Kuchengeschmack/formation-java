@@ -1,13 +1,17 @@
 package fr.adaming.entities;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -28,20 +32,14 @@ public class CargaisonAerienne extends Cargaison implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
-	public List<Marchandise> getMarchandises() {
-		return marchandises;
-	}
-
-	public void setMarchandises(List<Marchandise> marchandises) {
-		this.marchandises = marchandises;
-	}
+	@Temporal(TemporalType.DATE)
+	private Date dateLivraison;
 
 	public static final Double POIDS_MAX = 0.; // Poids maximal en kg, ne doit pas être dépassé
 
 	// Transformation de l'association UML en Java
 
-	@Autowired
+	@OneToMany(mappedBy = "cargaison")
 	private List<Marchandise> marchandises;
 
 	public Long getId() {
@@ -51,4 +49,22 @@ public class CargaisonAerienne extends Cargaison implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
+
+	public Date getDateLivraison() {
+		return dateLivraison;
+	}
+
+	public void setDateLivraison(Date dateLivraison) {
+		this.dateLivraison = dateLivraison;
+	}
+
+	public List<Marchandise> getMarchandises() {
+		return marchandises;
+	}
+
+	public void setMarchandises(List<Marchandise> marchandises) {
+		this.marchandises = marchandises;
+	}
+	
+	
 }

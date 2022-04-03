@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -29,6 +31,10 @@ public class Marchandise implements Serializable {
 	private String nom; // Le nom de la marchandise
 	private Double poids;
 	private Double vol;
+
+	@ManyToOne
+	@JoinColumn(name = "cargaison_id", referencedColumnName = "id_cargaison")
+	private Cargaison cargaison;
 
 	// Déclaration des constructeurs
 

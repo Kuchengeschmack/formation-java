@@ -1,5 +1,7 @@
 package fr.adaming.service;
 
+import java.util.List;
+
 import fr.adaming.entities.Marchandise;
 
 public interface IMarchandiseService {
@@ -16,5 +18,9 @@ public interface IMarchandiseService {
 	public Marchandise getById(Long id);
 
 	// Delete
-	public Long delete(Long id);
+	public int delete(Long id);
+
+	// Déclaration des méthodes supplémentaires au CRUD
+
+	public List<Marchandise> list();
 }

@@ -1,5 +1,7 @@
 package fr.adaming.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -33,14 +35,20 @@ public class CargaisonAerienneServiceImpl implements ICargaisonAerienneService {
 	}
 
 	@Override
-	public void delete(Long id) {
-		cargAerDao.delete(id);
+	public int delete(Long id) {
+		return cargAerDao.delete(id);
 
 	}
 
 	@Override
 	public CargaisonAerienne getById(Long id) {
 		return cargAerDao.getById(id);
+	}
+
+	@Override
+	public List<CargaisonAerienne> list() {
+
+		return cargAerDao.list();
 	}
 
 }

@@ -1,5 +1,7 @@
 package fr.adaming.service;
 
+import java.util.List;
+
 import fr.adaming.entities.CargaisonAerienne;
 
 public interface ICargaisonAerienneService {
@@ -16,5 +18,9 @@ public interface ICargaisonAerienneService {
 	public CargaisonAerienne getById(Long id);
 
 	// Delete
-	public void delete(Long id);
+	public int delete(Long id);
+
+	// Déclaration des méthodes supplémentaires au CRUD
+
+	public List<CargaisonAerienne> list();
 }
