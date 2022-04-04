@@ -54,8 +54,20 @@ public class EtudiantServiceImpl implements IEtudiantService {
 
 			ex.printStackTrace();
 		}
-		
+
 		return null;
+	}
+
+	@Override
+	public Etudiant getEtudiantByNomAndPrenom(String nom, String prenom) {
+
+		return etudiantDao.findByNomAndPrenom(nom, prenom);
+	}
+
+	@Override
+	public List<Etudiant> getEtudiantByAge(int age) {
+
+		return etudiantDao.searchEtudiant(age);
 	}
 
 }

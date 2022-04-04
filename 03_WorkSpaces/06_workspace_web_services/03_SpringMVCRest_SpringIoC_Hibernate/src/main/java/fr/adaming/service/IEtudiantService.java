@@ -15,4 +15,8 @@ public interface IEtudiantService {
 	public void deleteEtudiantById(int id);
 
 	public Etudiant getEtudiantById(int id);
+
+	public Etudiant getEtudiantByNomAndPrenom(String nom, String prenom);
+
+	public List<Etudiant> getEtudiantByAge(int age);
 }

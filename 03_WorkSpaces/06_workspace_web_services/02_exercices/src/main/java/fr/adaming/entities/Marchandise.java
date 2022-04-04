@@ -2,6 +2,7 @@ package fr.adaming.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,13 +28,17 @@ public class Marchandise implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private Long num; // Numéro auto-incrémenté
+	@Column(name = "nom")
 	private String nom; // Le nom de la marchandise
+	@Column(name = "poids")
 	private Double poids;
+	@Column(name = "vol")
 	private Double vol;
 
 	@ManyToOne
-	@JoinColumn(name = "cargaison_id", referencedColumnName = "id_cargaison")
+	@JoinColumn(name = "cargaison_id", referencedColumnName = "id")
 	private Cargaison cargaison;
 
 	// Déclaration des constructeurs

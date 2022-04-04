@@ -12,7 +12,7 @@ public interface IMarchandiseService {
 	public Marchandise save(Marchandise entite);
 
 	// Update
-	public void update(Marchandise entite);
+	public Marchandise update(Marchandise entite);
 
 	// Get
 	public Marchandise getById(Long id);

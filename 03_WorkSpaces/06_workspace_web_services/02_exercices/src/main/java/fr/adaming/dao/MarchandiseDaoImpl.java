@@ -12,13 +12,14 @@ import fr.adaming.entities.Cargaison;
 import fr.adaming.entities.Marchandise;
 
 @Repository
-public class MarchandiseDaoImpl extends GeneriqueDaoImpl<Marchandise> {
+public class MarchandiseDaoImpl extends GeneriqueDaoImpl<Marchandise> implements IMarchandiseDao {
 
 	@Autowired
 	private SessionFactory sf;
 
 	// Recherche de marchandise par cargaison
-	public Marchandise rechercheMarchandise(Cargaison cargIn) {
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public List<Marchandise> rechercheMarchandise(Cargaison cargIn) {
 
 		// Récupérer la session
 		Session s = sf.getCurrentSession();
@@ -33,7 +34,7 @@ public class MarchandiseDaoImpl extends GeneriqueDaoImpl<Marchandise> {
 		query.setParameter("pEntite", generic.getName()); // Récupérer le nom de la classe entité
 
 		// Exécuter la requête et obtenir le résultat
-		List<T> listeEntite = query.list();
+		List<Marchandise> listeEntite = query.list();
 
 		// Retourner la vérifiction
 		return listeEntite;
@@ -41,6 +42,7 @@ public class MarchandiseDaoImpl extends GeneriqueDaoImpl<Marchandise> {
 
 	// Recherche de marchandise par mot-clef
 	public Marchandise rechercheMarchandise(String motClef) {
-		return null;
+		return null; // À implémenter
 	}
+
 }

@@ -1,5 +1,7 @@
 package fr.adaming.rest;
 
+import java.util.List;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -37,7 +39,7 @@ public class MarchandiseRest {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Marchandise> recupererListe() {
-		return march.getAllEtudiants();
+		return marchService.list();
 
 	}
 
@@ -51,16 +53,17 @@ public class MarchandiseRest {
 
 	@Path("/update")
 	@PUT
+	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public void updateEtudiant(Marchandise marchIn) {
-		marchService.update(marchIn);
+	public Marchandise updateMarchandise(Marchandise marchIn) {
+		return marchService.update(marchIn);
 	}
 
 	@Path("/delete/{pId}")
 	@DELETE
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response deleteEtudiant(@PathParam("pId") Long id) {
-		Long verif = marchService.delete(id);
+	public Response deleteMarchandise(@PathParam("pId") Long id) {
+		int verif = marchService.delete(id);
 
 		if (verif != 0) {
 			return Response.status(202).entity("<h1>La suppression est OK</h1>").build();

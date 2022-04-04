@@ -12,10 +12,10 @@ public interface IGeneriqueDao<T extends Serializable> {
 	// Déclaration des méthodes CRUD
 
 	// Save
-	public void save(T entite);
+	public T save(T entite);
 
 	// Update
-	public void update(T entite);
+	public T update(T entite);
 
 	// Get
 	public T getById(Long id);

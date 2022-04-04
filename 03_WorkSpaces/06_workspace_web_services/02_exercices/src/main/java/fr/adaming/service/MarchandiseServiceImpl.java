@@ -29,8 +29,8 @@ public class MarchandiseServiceImpl implements IMarchandiseService {
 	}
 
 	@Override
-	public void update(Marchandise entite) {
-		marchDao.update(entite);
+	public Marchandise update(Marchandise entite) {
+		return marchDao.update(entite);
 
 	}
 

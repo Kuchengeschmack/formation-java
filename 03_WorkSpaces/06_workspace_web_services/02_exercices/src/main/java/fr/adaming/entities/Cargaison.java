@@ -1,25 +1,70 @@
 package fr.adaming.entities;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-public abstract class Cargaison {
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@Entity
+@Table(name = "cargaisons")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE) // Cette annotation permet de gérer l'héritage en JPA (on spécifie
+														// la stratégie pour la gestion de l'héritage
+
+// Les différentes stratégies : SINGLE_TABLE, TABLE_PER_CLASS, JOIN
+
+@DiscriminatorColumn(name = "categorie") // Cette annotation permet de créer une colonne dans la table pour pouvoir
+											// distinguer le type de l'enregistrement
+//@DiscriminatorValue(value = "cargaison")
+
+//@MappedSuperclass
+@SuppressWarnings("serial")
+public abstract class Cargaison implements Serializable {
 
 	// Déclaration des attributs
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	protected Long id;
+	@Column(name = "reference")
 	protected String reference;
-
+	@Column(name = "distance_parcours")
 	protected Double distanceParcours; // En km
+
+	@Temporal(TemporalType.DATE)
+	@Column(name = "date_livraison")
 	protected Date dateLivraison; // Format AAAA-MM-JJ
 
 	// Transformation de l'association UML en Java
 
+	@OneToMany(mappedBy = "cargaison", cascade = CascadeType.ALL) // LAZY pour éviter les
+																	// références cycliques
+	@JsonIgnore // Test
 	protected List<Marchandise> marchandises;
 
 	// Déclaration des constructeurs
 
 	public Cargaison() {
 		super();
+	}
+
+	public Cargaison(Long id) {
+		super();
+		this.id = id;
 	}
 
 	public Cargaison(String reference, Double distanceParcours, Date dateLivraison) {

@@ -7,13 +7,15 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public abstract class GeneriqueDaoImpl<T extends Serializable> implements IGeneriqueDao<T> {
 
-	private Class<T> generic;
+	protected Class<T> generic;
 
 	@Autowired
-	private SessionFactory sf;
+	protected SessionFactory sf; // protected afin de récupérer le bean dans les classes filles
 
 	// Initialiser la classe T
 	public final void setGeneric(Class<T> generic) {
@@ -23,15 +25,17 @@ public abstract class GeneriqueDaoImpl<T extends Serializable> implements IGener
 	// Déclaration des méthodes CRUD
 
 	// Save
-	public void save(T entite) {
+	public T save(T entite) {
 		Session s = sf.getCurrentSession();
 		s.save(entite);
+		return entite;
 	}
 
 	// Update
-	public void update(T entite) {
+	public T update(T entite) {
 		Session s = sf.getCurrentSession();
 		s.update(entite);
+		return entite;
 	}
 
 	// Get
@@ -48,13 +52,12 @@ public abstract class GeneriqueDaoImpl<T extends Serializable> implements IGener
 		Session s = sf.getCurrentSession();
 
 		// Récupérer la requête HQL
-		String req = "DELETE FROM :pEntite AS entite WHERE entite.id=:pId";
+		String req = "DELETE FROM " + generic.getSimpleName() + " AS entite WHERE entite.id=:pId";
 
 		// Récupérer le Query
 		Query query = s.createQuery(req);
 
 		// Donner la valeur du paramètre
-		query.setParameter("pEntite", generic.getName()); // Récupérer le nom de la classe entité
 		query.setParameter("pId", id);
 
 		// Exécuter la requête et obtenir le résultat
@@ -73,13 +76,10 @@ public abstract class GeneriqueDaoImpl<T extends Serializable> implements IGener
 		Session s = sf.getCurrentSession();
 
 		// Récupérer la requête HQL
-		String req = "SELECT FROM :pEntite";
+		String req = "FROM " + generic.getSimpleName();
 
 		// Récupérer le Query
 		Query query = s.createQuery(req);
-
-		// Donner la valeur du paramètre
-		query.setParameter("pEntite", generic.getName()); // Récupérer le nom de la classe entité
 
 		// Exécuter la requête et obtenir le résultat
 		List<T> listeEntite = query.list();
