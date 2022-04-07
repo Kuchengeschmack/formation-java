@@ -25,13 +25,13 @@ public class MarchandiseDaoImpl extends GeneriqueDaoImpl<Marchandise> implements
 		Session s = sf.getCurrentSession();
 
 		// Récupérer la requête HQL
-		String req = "SELECT FROM Marchandise AS c WHERE c."; // Réfléchir à la requête
+		String req = "FROM Marchandise AS m WHERE m.cargaison.id=:pId"; // Réfléchir à la requête
 
 		// Récupérer le Query
 		Query query = s.createQuery(req);
 
 		// Donner la valeur du paramètre
-		query.setParameter("pEntite", generic.getName()); // Récupérer le nom de la classe entité
+		query.setParameter("pId", cargIn.getId()); // Récupérer le nom de la classe entité
 
 		// Exécuter la requête et obtenir le résultat
 		List<Marchandise> listeEntite = query.list();
@@ -41,8 +41,26 @@ public class MarchandiseDaoImpl extends GeneriqueDaoImpl<Marchandise> implements
 	}
 
 	// Recherche de marchandise par mot-clef
-	public Marchandise rechercheMarchandise(String motClef) {
-		return null; // À implémenter
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public List<Marchandise> rechercheMarchandise(String motClef) {
+
+		// Récupérer la session
+		Session s = sf.getCurrentSession();
+
+		// Récupérer la requête HQL
+		String req = "FROM Marchandise AS m WHERE m.nom LIKE :pMotClef"; // Réfléchir à la requête
+
+		// Récupérer le Query
+		Query query = s.createQuery(req);
+
+		// Donner la valeur du paramètre
+		query.setParameter("pMotClef", "%" + motClef + "%"); // Récupérer le mot clef et construire la requête LIKE
+
+		// Exécuter la requête et obtenir le résultat
+		List<Marchandise> listeEntite = query.list();
+
+		// Retourner la vérifiction
+		return listeEntite;
 	}
 
 }

@@ -11,6 +11,6 @@ public interface IMarchandiseDao extends IGeneriqueDao<Marchandise> {
 	public List<Marchandise> rechercheMarchandise(Cargaison cargIn);
 
 	// Recherche de marchandise par mot-clef
-	public Marchandise rechercheMarchandise(String motClef);
+	public List<Marchandise> rechercheMarchandise(String motClef);
 
 }

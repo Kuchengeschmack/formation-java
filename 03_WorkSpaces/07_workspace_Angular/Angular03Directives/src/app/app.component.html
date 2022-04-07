@@ -1,0 +1,35 @@
+
+<!-- La directive structurelle ngIf-->
+<h1 *ngIf="indice">Ceci est un message d'erreur</h1>
+
+<!-- La directive structurelle ngIf avec le bloc else-->
+<h1 *ngIf="indice2;else blocElse">Ceci est le message true de indice2</h1>
+
+<!-- Le bloc else de ngIf-->
+<ng-template #blocElse>
+<h2>Ceci est le message false de indice2</h2>
+</ng-template>
+
+<!--La directive ngFor-->
+<h1>Liste des étudiants</h1>
+<table>
+  <tr>
+    <th>Nom</th>
+    <th>Prenom</th>
+    <th>Age</th>
+  </tr>
+  <tr *ngFor="let elem of etudiants" [ngStyle]="{'background-color': choixCouleur(elem.nom)}">
+    <td>{{elem.nom}}</td>
+    <td>{{elem.prenom}}</td>
+    <td>{{elem.age}}</td>
+  </tr>
+</table>
+
+<!-- 2: Les directives de type attributs : modifier l'apparence ou le comportement des balises HTML -->
+<button [ngClass]="['btn' , 'btn2']">Envoyer</button>
+
+<br><br>
+
+<h1 [ngClass]="status ? 'success' : 'failure'">Ceci est un titre</h1>
+
+<button (click)="changerStatut()">Cliquer</button>

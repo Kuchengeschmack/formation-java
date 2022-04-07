@@ -17,6 +17,8 @@ import javax.ws.rs.core.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import fr.adaming.entities.Cargaison;
+import fr.adaming.entities.CargaisonAerienne;
+import fr.adaming.entities.CargaisonRoutiere;
 import fr.adaming.service.ICargaisonService;
 
 @Path("/cargaison")
@@ -45,25 +47,41 @@ public class CargaisonRest {
 
 	}
 
-	@Path("/add")
+	@Path("/addAerienne")
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON) // Spécifier le format des données en entrée (envoyées par la requête)
-	public Cargaison addCarg(Cargaison cargIn) {
+	public Cargaison addCarg(CargaisonAerienne cargIn) {
 		return cargService.save(cargIn);
 	}
 
-	@Path("/update")
+	@Path("/addRoutiere")
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON) // Spécifier le format des données en entrée (envoyées par la requête)
+	public Cargaison addCarg(CargaisonRoutiere cargIn) {
+		return cargService.save(cargIn);
+	}
+
+	@Path("/updateAerienne")
 	@PUT
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Cargaison updateCarg(Cargaison cargIn) {
+	public Cargaison updateCarg(CargaisonAerienne cargIn) {
+		return cargService.update(cargIn);
+	}
+
+	@Path("/updateRoutiere")
+	@PUT
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Cargaison updateCarg(CargaisonRoutiere cargIn) {
 		return cargService.update(cargIn);
 	}
 
 	@Path("/delete/{pId}")
 	@DELETE
-	@Produces(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.TEXT_HTML) // Pour afficher du HTML dans SOAP UI
 	public Response deleteCarg(@PathParam("pId") Long id) {
 
 		int verif = cargService.delete(id);

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import fr.adaming.dao.ICargaisonDao;
 import fr.adaming.dao.IGeneriqueDao;
 import fr.adaming.entities.Cargaison;
 
@@ -13,10 +14,10 @@ import fr.adaming.entities.Cargaison;
 @Transactional
 public class CargaisonServiceImpl implements ICargaisonService {
 
-	private IGeneriqueDao<Cargaison> cargDao;
+	private ICargaisonDao cargDao;
 
 	@Autowired
-	public void setCargDao(IGeneriqueDao<Cargaison> cargDao) {
+	public void setCargDao(ICargaisonDao cargDao) {
 		this.cargDao = cargDao;
 		cargDao.setGeneric(Cargaison.class);
 	}

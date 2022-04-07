@@ -1,0 +1,21 @@
+
+<!-- 1: Interpolation : afficher les valeurs des props du composant -->
+<h1>{{message}}</h1>
+
+<br><br><br><br><br>
+
+<!-- 2: Property-Binding : modifier les valeurs des attributs HTML à partir des valeurs des propriétés du composant -->
+<input type="{{typeBtn}}" bind-value="nomBtn" [disabled]="indice" />
+
+<h1 [style.color]="valCouleur">Ceci est un titre</h1>
+
+<div [class.toto]="valClass"></div>
+
+<!-- 3: Event-Binding : pour pouvoir gérer les événements HTML avec Angular -->
+<input type="button" value="Appel" (click)="maFonction(); maFonction2()">
+
+<br><br><br>
+
+<input type="text" [(ngModel)]="msg">
+
+<h3>{{msg}}</h3>

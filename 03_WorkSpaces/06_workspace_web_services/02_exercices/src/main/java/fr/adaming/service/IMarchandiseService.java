@@ -2,6 +2,7 @@ package fr.adaming.service;
 
 import java.util.List;
 
+import fr.adaming.entities.Cargaison;
 import fr.adaming.entities.Marchandise;
 
 public interface IMarchandiseService {
@@ -23,4 +24,10 @@ public interface IMarchandiseService {
 	// Déclaration des méthodes supplémentaires au CRUD
 
 	public List<Marchandise> list();
+
+	// Recherche de marchandise par cargaison
+	public List<Marchandise> rechercheMarchandise(Cargaison cargIn);
+
+	// Recherche de marchandise par mot-clef
+	public List<Marchandise> rechercheMarchandise(String motClef);
 }

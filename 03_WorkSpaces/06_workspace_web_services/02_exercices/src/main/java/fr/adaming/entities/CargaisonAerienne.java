@@ -1,6 +1,7 @@
 package fr.adaming.entities;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
@@ -22,7 +23,7 @@ public class CargaisonAerienne extends Cargaison {
 	// Déclaration des attributs
 
 	@Column(name = "poids_max")
-	public static final Double POIDS_MAX = 0.; // Poids maximal en kg, ne doit pas être dépassé
+	public static final Double POIDS_MAX = 1000.; // Poids maximal en kg, ne doit pas être dépassé
 
 	// Déclaration des constructeurs
 
@@ -40,6 +41,26 @@ public class CargaisonAerienne extends Cargaison {
 
 	public CargaisonAerienne(Long id, String reference, Double distanceParcours, Date dateLivraison) {
 		super(id, reference, distanceParcours, dateLivraison);
+	}
+
+	// Déclaration des getters et des setters
+
+	// On vérifie que le poids total n'est pas dépassé, sinon la liste est null
+	@Override
+	public void setMarchandises(List<Marchandise> marchandises) {
+
+		// Calcul du poids total
+		Double poidsTotal = 0.;
+		for (Marchandise m : marchandises) {
+			poidsTotal += m.getPoids();
+		}
+
+		// Si le poids est supérieur au POIDS_MAX, marchandises = null
+		if (poidsTotal > POIDS_MAX) {
+			this.marchandises = null;
+		} else {
+			this.marchandises = marchandises;
+		}
 	}
 
 }

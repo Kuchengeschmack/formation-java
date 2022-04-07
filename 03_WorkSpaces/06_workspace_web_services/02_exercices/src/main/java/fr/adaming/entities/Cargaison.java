@@ -18,6 +18,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -29,9 +30,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @DiscriminatorColumn(name = "categorie") // Cette annotation permet de créer une colonne dans la table pour pouvoir
 											// distinguer le type de l'enregistrement
-//@DiscriminatorValue(value = "cargaison")
 
-//@MappedSuperclass
 @SuppressWarnings("serial")
 public abstract class Cargaison implements Serializable {
 
@@ -46,6 +45,7 @@ public abstract class Cargaison implements Serializable {
 	protected Double distanceParcours; // En km
 
 	@Temporal(TemporalType.DATE)
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "date_livraison")
 	protected Date dateLivraison; // Format AAAA-MM-JJ
 
@@ -53,7 +53,7 @@ public abstract class Cargaison implements Serializable {
 
 	@OneToMany(mappedBy = "cargaison", cascade = CascadeType.ALL) // LAZY pour éviter les
 																	// références cycliques
-	@JsonIgnore // Test
+	@JsonIgnore // Pour éviter la boucle dans la génération du json
 	protected List<Marchandise> marchandises;
 
 	// Déclaration des constructeurs

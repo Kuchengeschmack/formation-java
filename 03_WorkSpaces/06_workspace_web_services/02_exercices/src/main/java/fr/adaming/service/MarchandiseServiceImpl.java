@@ -6,17 +6,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import fr.adaming.dao.IGeneriqueDao;
+import fr.adaming.dao.IMarchandiseDao;
+import fr.adaming.entities.Cargaison;
 import fr.adaming.entities.Marchandise;
 
 @Service
 @Transactional
 public class MarchandiseServiceImpl implements IMarchandiseService {
 
-	private IGeneriqueDao<Marchandise> marchDao;
+	private IMarchandiseDao marchDao;
 
 	@Autowired
-	public void setMarchDao(IGeneriqueDao<Marchandise> marchDao) {
+	public void setMarchDao(IMarchandiseDao marchDao) {
 		this.marchDao = marchDao;
 		marchDao.setGeneric(Marchandise.class);
 	}
@@ -49,6 +50,18 @@ public class MarchandiseServiceImpl implements IMarchandiseService {
 	public List<Marchandise> list() {
 
 		return marchDao.list();
+	}
+
+	@Override
+	public List<Marchandise> rechercheMarchandise(Cargaison cargIn) {
+
+		return marchDao.rechercheMarchandise(cargIn);
+	}
+
+	@Override
+	public List<Marchandise> rechercheMarchandise(String motClef) {
+
+		return marchDao.rechercheMarchandise(motClef);
 	}
 
 }

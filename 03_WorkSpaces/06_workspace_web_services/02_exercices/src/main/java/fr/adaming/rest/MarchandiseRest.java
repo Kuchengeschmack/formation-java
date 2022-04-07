@@ -16,6 +16,8 @@ import javax.ws.rs.core.Response;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import fr.adaming.entities.CargaisonAerienne;
+import fr.adaming.entities.CargaisonRoutiere;
 import fr.adaming.entities.Marchandise;
 import fr.adaming.service.IMarchandiseService;
 
@@ -26,12 +28,41 @@ public class MarchandiseRest {
 	private IMarchandiseService marchService;
 
 	// La méthode retourne la donnée au lieu d'un String ou d'un ModelAndView
-	@Path("/search")
+	@Path("/searchById")
 	@GET // Pour que cette méthode traite les requêtes HTTP en GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public Marchandise rechercheMarchandise(@QueryParam("pId") Long id) {
+	public Marchandise rechercheMarchandiseById(@QueryParam("pId") Long id) {
 
 		return marchService.getById(id);
+
+	}
+
+	@Path("/searchByCargaisonAerienne")
+	@POST // Pour que cette méthode traite les requêtes HTTP en GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public List<Marchandise> rechercheMarchandiseByCargaison(CargaisonAerienne cargIn) {
+
+		return marchService.rechercheMarchandise(cargIn);
+
+	}
+
+	@Path("/searchByCargaisonRoutiere")
+	@POST // Pour que cette méthode traite les requêtes HTTP en GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public List<Marchandise> rechercheMarchandiseByCargaison(CargaisonRoutiere cargIn) {
+
+		return marchService.rechercheMarchandise(cargIn);
+
+	}
+
+	@Path("/searchByMotClef")
+	@GET // Pour que cette méthode traite les requêtes HTTP en GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Marchandise> rechercheMarchandiseByMotClef(@QueryParam("pMotClef") String motClef) {
+
+		return marchService.rechercheMarchandise(motClef);
 
 	}
 
