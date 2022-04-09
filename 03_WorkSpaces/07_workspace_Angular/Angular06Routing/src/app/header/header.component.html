@@ -1,0 +1,16 @@
+<nav class="navbar navbar-inverse">
+    <ul class="nav nav-pills">
+      <li role="presentation"><a [routerLink]="['/home']">Accueil</a></li>
+      <li role="presentation"><a [routerLink]="['/add']">Ajouter</a></li>
+      <li role="presentation"><a [routerLink]="['/update']">Modifier</a></li>
+
+      <!-- Les paramètres optionels -->
+      <li role="presentation"><a [routerLink]="['/delete',{pId:75}]">Supprimer</a></li>
+      
+      <!-- Les paramètres de type query parameters -->
+      <li role="presentation"><a [routerLink]="['/find']" [queryParams]="{pNom:'FOFO', pPrenom:'Fifi'}">Rechercher</a></li>
+      
+      <!-- Les paramètres de type Template parameters -->
+      <li role="presentation"><a [routerLink]="['/search','145']">Detail</a></li>
+    </ul>
+  </nav>

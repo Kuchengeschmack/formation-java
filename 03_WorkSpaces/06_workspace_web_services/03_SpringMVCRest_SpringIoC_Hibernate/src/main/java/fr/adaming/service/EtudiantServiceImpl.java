@@ -32,7 +32,14 @@ public class EtudiantServiceImpl implements IEtudiantService {
 	@Override
 	public Etudiant updateEtudiant(Etudiant eIn) {
 
-		return etudiantDao.save(eIn); // On réutilise save
+		// Récupérer l'étudiant par son id dans le DAO
+		Etudiant eModif = this.getEtudiantById(eIn.getId());
+
+		if (eModif != null) {
+
+			return etudiantDao.save(eIn); // On réutilise save
+		}
+		return null;
 	}
 
 	@Override

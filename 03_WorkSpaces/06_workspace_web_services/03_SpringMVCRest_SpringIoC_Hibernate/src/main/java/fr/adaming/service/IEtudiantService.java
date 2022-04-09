@@ -19,4 +19,8 @@ public interface IEtudiantService {
 	public Etudiant getEtudiantByNomAndPrenom(String nom, String prenom);
 
 	public List<Etudiant> getEtudiantByAge(int age);
+
+	public Etudiant getEtudiantByNomEtPrenom(String nom, String prenom);
+
+	public List<Etudiant> getByAge(int age);
 }

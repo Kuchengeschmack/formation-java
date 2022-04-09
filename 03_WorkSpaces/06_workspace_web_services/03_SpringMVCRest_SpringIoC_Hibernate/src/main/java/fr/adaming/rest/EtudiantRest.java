@@ -3,6 +3,7 @@ package fr.adaming.rest;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,7 +22,7 @@ import fr.adaming.service.IEtudiantService;
 @RestController
 
 @RequestMapping("/etudiant")
-
+@CrossOrigin("http://localhost:4200")
 public class EtudiantRest {
 
 	// Transformation de l'association UML en Java
@@ -39,29 +40,32 @@ public class EtudiantRest {
 	}
 
 	@PostMapping(consumes = "application/json", produces = "application/json")
-	// RequestBody pour récupérer l'attribut du corps de la requête
 	public Etudiant ajouterEtudiant(@RequestBody Etudiant eIn) {
+
 		return etudiantService.addEtudiant(eIn);
 	}
 
 	@PutMapping(consumes = "application/json", produces = "application/json")
-	public Etudiant updateEtudiant(Etudiant eIn) {
+	public Etudiant updateEtudiant(@RequestBody Etudiant eIn) {
+
 		return etudiantService.updateEtudiant(eIn);
 	}
 
 	@DeleteMapping(value = "/remove/{pId}")
 	public void supprimerEtudiant(@PathVariable("pId") int id) {
+
 		etudiantService.deleteEtudiantById(id);
 	}
 
 	@GetMapping(value = "/get/{pNom}/{pPrenom}")
 	public Etudiant getEtudiantByNomAndPrenom(@PathVariable("pNom") String nom,
 			@PathVariable("pPrenom") String prenom) {
-		return etudiantService.getEtudiantByNomAndPrenom(nom, prenom);
+
+		return etudiantService.getEtudiantByNomEtPrenom(nom, prenom);
 	}
 
 	@GetMapping(value = "/search/{pAge}")
-	public List<Etudiant> getEtudiantByAge(@PathVariable("pAge") int age) {
-		return etudiantService.getEtudiantByAge(age);
+	public List<Etudiant> getEtudiantsByAge(@PathVariable("pAge") int age) {
+		return etudiantService.getByAge(age);
 	}
 }
