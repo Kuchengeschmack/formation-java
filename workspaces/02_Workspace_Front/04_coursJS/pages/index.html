@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Ma page</title>
+    <!-- Spécifier le chemin du fichier *.js à utiliser  -->
+    <script src="./js/mon_script.js"></script>
+  </head>
+  <body>
+    <h1 style="color: red">Gestion des évènements</h1>
+    <input type="button" value="cliquer" onmouseover="afficher()" />
+
+    <hr />
+    <br />
+    <h1 style="color: red">Manipulation du DOM</h1>
+    <!-- Utilisation de l'id -->
+    <p id="idP1">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad porro
+      perferendis totam, inventore, sapiente harum, ullam vero reiciendis
+      nostrum ratione consectetur alias. Nam iste ipsa laborum molestias, facere
+      aliquam recusandae.
+    </p>
+    <button onclick="lireText()">Manipuler</button>
+
+    <!-- Utilisation de la classe css -->
+    <p class="fofo">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad porro
+      perferendis totam, inventore, sapiente harum, ullam vero reiciendis
+      nostrum ratione consectetur alias. Nam iste ipsa laborum molestias, facere
+      aliquam recusandae.
+    </p>
+    <button onclick="lireTextByClass()">Manipuler</button>
+
+    <hr />
+    <br />
+
+    <h1 style="color: red">Manipulation du contenu html</h1>
+    <div class="idDiv">
+        <p id="idp2" style="color:red">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque nemo totam eum maxime eaque earum est ratione ducimus obcaecati aliquam. Ratione ullam, corporis labore quas fugit quos minima architecto adipisci.</p>
+        <button onclick="changerStyle()">Manipuler</button>
+    </div>
+
+    <img src="./images/inti.jpg" alt="" id="idimg"/>
+
+    <button onclick="changerImage()">Manipuler</button>
+
+    <!-- Insérer du js dans ma page grâce à la balise <script> -->
+    <!-- La bonne pratique est de mettre la balise script à la fin de la balise body-->
+
+        <hr/>
+        <br/>
+
+        <h1 style="color:red">Calculatrice</h1>
+
+        <label for="a">a: </label>
+        <input type="text" id="a" name="a"/>
+        <br/>
+
+        <label for="b">b: </label>
+        <input type="text" id="b"/>
+        <br/>
+        <button onclick="operation('a','b','result','add')">+</button>
+        <button onclick="operation('a','b','result','sub')">-</button>
+        <button onclick="operation('a','b','result','mul')">*</button>
+        <button onclick="operation('a','b','result','div')">/</button>
+        <br/>
+
+        <label for="result">result: </label>
+        <input type="text" id="result"/>
+
+        
+
+
+
+
+  </body>
+</html>

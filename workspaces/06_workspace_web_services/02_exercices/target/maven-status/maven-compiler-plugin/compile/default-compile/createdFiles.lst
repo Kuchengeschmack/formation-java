@@ -1,0 +1,16 @@
+fr\adaming\entities\CargaisonAerienne.class
+fr\adaming\service\IMarchandiseService.class
+fr\adaming\service\CargaisonServiceImpl.class
+fr\adaming\dao\IMarchandiseDao.class
+fr\adaming\dao\ICargaisonDao.class
+fr\adaming\entities\Cargaison.class
+fr\adaming\rest\CargaisonRest.class
+fr\adaming\entities\CargaisonRoutiere.class
+fr\adaming\entities\Marchandise.class
+fr\adaming\dao\MarchandiseDaoImpl.class
+fr\adaming\dao\IGeneriqueDao.class
+fr\adaming\service\MarchandiseServiceImpl.class
+fr\adaming\service\ICargaisonService.class
+fr\adaming\dao\CargaisonDaoImpl.class
+fr\adaming\dao\GeneriqueDaoImpl.class
+fr\adaming\rest\MarchandiseRest.class

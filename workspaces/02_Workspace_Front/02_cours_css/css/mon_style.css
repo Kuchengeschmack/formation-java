@@ -1,0 +1,17 @@
+
+/* 3: Externaliser le style dans un fichier css */
+
+/* sélecteur de type id */
+#toto {
+    text-align: center;
+}
+
+/* sélecteur de type classe css */
+.fofo {
+    color: red;
+    text-align: center;
+}
+
+/* Comment rendre le style commun à toutes les pages ?
+ * on peut factoriser le style dans une feuille de style css
+ */

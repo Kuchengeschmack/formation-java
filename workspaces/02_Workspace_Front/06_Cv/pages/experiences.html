@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV de Dorian</title>
+
+    <style>
+
+    </style>
+
+    <link rel="stylesheet" href="../css/mon_style.css" />
+    <script src="../js/jquery-3.6.0.js"></script>
+    <script src="../js/script.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1 id="nom">Dorian <b>RÉALE--CARON</b></h1>
+
+        <div>
+            <nav>
+                <ul>
+                    <li><a href="./competences.html">Compétences</a></li>
+                    <li><a href="./formation.html">Formation</a></li>
+                    <li><a href="./experiences.html">Expériences</a></li>
+                    <li><a href="./interets.html">Intérêts</a></li>
+                    <li><a href="../video/CV_Dorian.mp4">Mon CV vidéo</a></li>
+                </ul>
+            </nav>
+        </div>
+        </div>
+    </header>
+
+    <!-- 2: section présentation -->
+    <section id="idIntro">
+        <div class="container">
+            <h1>Mes expériences</h1>
+        </div>
+    </section>
+    <!-- 3: la section notifiction -->
+    <section id="notif">
+        <div id="barre">
+            <div id="animation">
+                <img id="idImg" src="../img/kaaris.png" style="max-height: 200px; margin-bottom: 0px" alt="Kaaris" />
+            </div>
+            <button id="button2" onclick="changePicture()" style="margin: 20px">Change pour Philippe Etchebest</button>
+            <h1>Appuye sur la touche S pour faire sauter ton cuistot !</h1>
+        </div>
+    </section>
+
+   <!-- 4: la section services -->
+   <section id="service">
+    <div class="container">
+        <!-- Article HTML -->
+        <article class="box3">
+            <img src="../img/safran-logo.webp" alt="langues">
+            <h3>Safran Helicopter Engines</h3>
+            <ul>
+                <li>Avril - Octobre 2021 - Stage Ingénieur - Bordes (64)</li>
+                <li>Modélisation et création d’une base de données de résultats d’essais sur pièces finies de pièces tournantes de moteur d’hélicoptère</li>
+                <li>Programmation Python pour le traitement de la base de données des résultats d’essais afin de relier les conditions de coupe en tournage/fraisage à la validation métallurgique</li>
+                <li>Livraison d’un outil d’interface graphique accessible en ligne pour la consultation de la base</li>
+                <li>Développement d’un outil Excel VBA pour la mise en page de simogrammes</li>
+            </ul>
+        </article>
+
+        <article class="box3">
+            <img src="../img/CMT-logo.webp" alt="langues">
+            <h3>CMT - Motores Térmicos</h3>
+            <ul>
+                <li>Septembre 2019 - Janvier 2020 - Stage Assistant-Ingénieur - Valencia (ESP)</li>
+                <li>Programmation en C et Matlab pour le post(traitemet d'une simulation sur une chambre de combustion de moteur d'avion sous le logiciel CFD Converge</li>
+                <li>Lancement de simulations à distance sur Linux</li>
+                <li>Changement de stratégie et livraison d'un outil fonctionnel Python pour les logiciels CFD Converge et OpenFOAM</li>
+            </ul>
+        </article>
+
+        <article class="box3">
+            <img src="../img/safran-logo.webp" alt="langues">
+            <h3>Safran Aircraft Engines</h3>
+            <ul>
+                <li>Janvier 2019 - Stage Opérateur - Gennevilliers (92)</li>
+                <li>Rédaction des sommaires synoptiques pour la documentation des fours de fusuion permettant de naviguer dans les documents selon l'OF réalisé</li>
+                <li>Mise à jour des classeurs selon la documentation Sharepoint</li>
+                <li>Ebauche d'un classeur Excel contenant des cartes de contrôle des données des fours</li>
+            </ul>
+        </article>
+
+    </div>
+</section>
+
+    <footer>
+        <h5 style="text-align: center">
+            courriel : <a href="mailto:drealecaron@protonmail.com">drealecaron@protonmail.com</a><br />
+            tél. : 06 51 06 47 60<br />
+            ville : Montmorency (95)
+        </h5>
+    </footer>
+
+    <script>myMove();</script>
+
+</body>
+
+</html>

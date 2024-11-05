@@ -1,0 +1,29 @@
+<!-- <nav class="navbar navbar"> -->
+<!-- 	<ul class="nav nav-pills"> -->
+<!-- 		<li role="presentation"><div class="dropdown"> -->
+<!-- 				<button class="btn btn-default dropdown-toggle" type="button" -->
+<!-- 					id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" -->
+<!-- 					aria-expanded="true"> -->
+<!-- 					<span class="glyphicon glyphicon-plus"></span> Étudiant <span -->
+<!-- 						class="caret"></span> -->
+<!-- 				</button> -->
+<!-- 				<ul class="dropdown-menu" aria-labelledby="dropdownMenu1"> -->
+<!-- 					<li><a href="accueil.jsp">Accueil</a></li> -->
+<!-- 					<li><a href="ajout.jsp">Ajouter</a></li> -->
+<!-- 					<li><a href="modif.jsp">Modifier</a></li> -->
+<!-- 					<li><a href="recherche.jsp">Rechercher</a></li> -->
+<!-- 					<li><a href="suppression.jsp">Supprimer</a></li> -->
+<!-- 				</ul> -->
+<!-- 			</div></li> -->
+<!-- 	</ul> -->
+<!-- </nav> -->
+
+<nav class="navbar navbar-inverse">
+	<ul class="nav nav-pills">
+		<li role="presentation"><a href="${pageContext.request.contextPath}/etudiant/list">Accueil</a></li>
+		<li role="presentation"><a href="<c:url value='/etudiant/displayAdd'/>">Ajouter</a></li>
+		<li role="presentation"><a href="<c:url value='/etudiant/displayUpdate'/>">Modifier</a></li>
+		<li role="presentation"><a href="<c:url value='/etudiant/displayDelete'/>">Supprimer</a></li>
+		<li role="presentation"><a href="<c:url value='/etudiant/displaySearch'/>">Rechercher</a></li>
+	</ul>
+</nav>

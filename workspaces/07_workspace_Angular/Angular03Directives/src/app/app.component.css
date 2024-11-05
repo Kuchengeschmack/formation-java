@@ -1,0 +1,16 @@
+.btn {
+    color: white;
+    font-size: 16px;
+}
+
+.btn2 {
+    background-color: blue;
+}
+
+.success {
+    background-color: aqua;
+}
+
+.failure {
+    background-color: red;
+}

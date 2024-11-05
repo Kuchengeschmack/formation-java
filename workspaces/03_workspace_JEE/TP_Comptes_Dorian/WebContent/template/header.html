@@ -1,0 +1,132 @@
+<nav class="navbar navbar">
+	<ul class="nav nav-pills">
+
+		<!-- Dropdown pour ajouter un compte -->
+		<li role="presentation"><div class="dropdown">
+				<button class="btn btn-default dropdown-toggle" type="button"
+					id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="true">
+					<span class="glyphicon glyphicon-plus"></span> Ajouter un compte <span
+						class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+					<li><a href="ajout_compte.jsp?pTypeCompte=compteCourant">Compte
+							courant</a></li>
+					<li><a href="ajout_compte.jsp?pTypeCompte=compteEpargne">Compte
+							épargne</a></li>
+				</ul>
+			</div></li>
+
+		<!-- Dropdown pour modifier un compte -->
+		<li role="presentation"><div class="dropdown">
+				<button class="btn btn-default dropdown-toggle" type="button"
+					id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="true">
+					<span class="glyphicon glyphicon-pencil"></span> Modifier un compte
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+					<li><a href="modif_compte.jsp?pTypeCompte=compteCourant">Compte
+							courant</a></li>
+					<li><a href="modif_compte.jsp?pTypeCompte=compteEpargne">Compte
+							épargne</a></li>
+				</ul>
+			</div></li>
+
+		<!-- Dropdown pour supprimer un compte -->
+		<li role="presentation"><div class="dropdown">
+				<button class="btn btn-default dropdown-toggle" type="button"
+					id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="true">
+					<span class="glyphicon glyphicon-minus"></span> Supprimer un compte
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+					<li><a href="suppression_compte.jsp?pTypeCompte=compteCourant">Compte
+							courant</a></li>
+					<li><a href="suppression_compte.jsp?pTypeCompte=compteEpargne">Compte
+							épargne</a></li>
+				</ul>
+			</div></li>
+
+		<!-- Dropdown pour rechercher un compte -->
+		<li role="presentation"><div class="dropdown">
+				<button class="btn btn-default dropdown-toggle" type="button"
+					id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="true">
+					<span class="glyphicon glyphicon-search"></span> Rechercher un
+					compte <span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+					<li><a href="recherche_compte.jsp?pTypeCompte=compteCourant">Compte
+							courant</a></li>
+					<li><a href="recherche_compte.jsp?pTypeCompte=compteEpargne">Compte
+							épargne</a></li>
+				</ul>
+			</div></li>
+
+		<!-- Dropdown pour retirer de l'argent -->
+		<li role="presentation"><div class="dropdown">
+				<button class="btn btn-default dropdown-toggle" type="button"
+					id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="true">
+					<span class="glyphicon glyphicon-eur"></span> Retirer <span
+						class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+					<li><a href="retirer.jsp?pTypeCompte=compteCourant">Compte
+							courant</a></li>
+					<li><a href="retirer.jsp?pTypeEpargne=compteEpargne">Compte
+							épargne</a></li>
+				</ul>
+			</div></li>
+
+		<!-- Dropdown pour déposer de l'argent -->
+		<li role="presentation"><div class="dropdown">
+				<button class="btn btn-default dropdown-toggle" type="button"
+					id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="true">
+					<span class="glyphicon glyphicon-eur"></span> Déposer <span
+						class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+					<li><a href="deposer.jsp?pTypeCompte=compteCourant">Compte
+							courant</a></li>
+					<li><a href="deposer.jsp?pTypeEpargne=compteEpargne">Compte
+							épargne</a></li>
+				</ul>
+			</div></li>
+			
+			<!-- Dropdown pour virer d'un compte à l'autre -->
+		<li role="presentation"><div class="dropdown">
+				<button class="btn btn-default dropdown-toggle" type="button"
+					id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="true">
+					<span class="glyphicon glyphicon-eur"></span> Virer <span
+						class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+					<li><a href="virement.jsp?pTypeCompte=compteCourant">Compte
+							courant</a></li>
+					<li><a href="virement.jsp?pTypeEpargne=compteEpargne">Compte
+							épargne</a></li>
+				</ul>
+			</div></li>
+
+		<!-- Lien vers l'accueil -->
+		<li role="presentation"><a href="auth"><span
+				class="glyphicon glyphicon-inbox"></span> Accueil </a></li>
+
+		<!-- Lien vers la gestion du compte -->
+		<li role="presentation"><a href="modif_info.jsp"><span
+				class="glyphicon glyphicon-pencil"></span> Mettre à jour mes
+				informations </a></li>
+
+		<!-- Lien pour se déconnecter -->
+		<li role="presentation"><a href="logout"><span
+				class="glyphicon glyphicon-off"></span> Me déconnecter </a></li>
+
+	</ul>
+</nav>
+
+

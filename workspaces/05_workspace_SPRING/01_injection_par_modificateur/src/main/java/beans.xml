@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Déclaration (définition) du Bean (objet) employeBean pour que le conteneur 
+		Spring IoC puisse l'instancier -->
+	<bean id="empBean" class="fr.adaming.beans.Employe">
+		<!-- Initialiser les attributs de empBean via les setters (l'injection 
+			de dépendance via les modificateurs) -->
+		<property name="nom" value="TOTO" />
+		<property name="prenom" value="Titi" />
+		<property name="age" value="25" />
+	</bean>
+
+	<!-- Déclaration (définition) du bean bossBean -->
+	<bean id="bossBean" class="fr.adaming.beans.Employe">
+		<!-- Injection des dépendances via les setters -->
+		<property name="nom" value="FOFO" />
+		<property name="prenom" value="Fifi" />
+		<property name="age" value="45" />
+	</bean>
+
+	<!-- Déclaration du bean esnBean -->
+	<bean id="esnBean" class="fr.adaming.beans.Entreprise">
+		<!-- Injection des valeurs primitives -->
+		<property name="nom" value="Sopra" />
+
+		<!-- Injection des collaborateurs (des beans) via les setters -->
+		<property name="employe" ref="empBean" />
+		<property name="directeur" ref="bossBean" />
+	</bean>
+
+
+</beans>
